@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Challenge Yourself!</h1>
+			<h1>Achieve Your Goals!</h1>
 			<p>What do you need to get motivated to do? You'll be much more likely to accomplish your goals if they have consequences...</p>
 			<br/>
 			<form method="POST" name="challengeFormSubmission" id="createForm">
