@@ -1,6 +1,5 @@
 package com.keepaccountable.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.ToString;
 
@@ -16,6 +15,5 @@ public class UserInfo {
     private List<String> emails;
     private String fullName;
     private List<String> phones;
-    @JsonProperty("update_timestamp")
-    private Date updateTimestamp;
+    private Date updatedTimestamp;
 }
