@@ -18,7 +18,7 @@
 			<form method="POST" name="challengeFormSubmission" id="createForm">
 				<div class="row">
 					<div class="form-group">
-						<label for="title">Title:</label>${challengeFormSubmission.title}
+						<label for="title">Title:</label>
 						<input type="text" class="form-control" name="title" id="title"/>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<input type="button" onClick="postFormData()" class="btn btn-lg btn-primary" />
+					<input type="button" onClick="postFormData()" class="btn btn-lg btn-primary" value="Submit"/>
 				</div>
 			</form>
 		</div>
