@@ -19,12 +19,19 @@ public class HomePageController {
 	
     @GetMapping("/")
     public String index(Model model) {	
-    	
 		List<ChallengeFormSubmission> chList = dao.findAll();
-    	ChallengeFormSubmission ch1 = chList.get(0);
-    	ChallengeFormSubmission ch2 = chList.get(1);
-    	ChallengeFormSubmission ch3 = chList.get(2);
+    	
+		ChallengeFormSubmission ch1 = chList.get(0);
+    	
+    	ChallengeFormSubmission ch2 = chList.get(0);
+    	
+    	ChallengeFormSubmission ch3 = chList.get(0);
     	    	
+    	model.addAttribute("href1",ch1.getId());
+    	model.addAttribute("href2",ch1.getId());
+    	model.addAttribute("href3",ch1.getId());
+    	
+    	
     	model.addAttribute("title1", ch1.getTitle());
     	model.addAttribute("title2", ch2.getTitle());
     	model.addAttribute("title3", ch3.getTitle());
