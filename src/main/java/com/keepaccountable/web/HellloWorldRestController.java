@@ -18,8 +18,4 @@ public class HellloWorldRestController {
         return "Hello, greeting to you!";
     }
     
-    @PostMapping(path="/createChallenge", consumes="application/json", produces="application/json") 
-    public String createChallenge(@RequestBody ChallengeFormSubmission challenge) {
-    	return challenge.getTitle();
-    }
 }

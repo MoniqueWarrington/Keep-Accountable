@@ -18,10 +18,13 @@ function postData(formData) {
   let xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function() {
-      console.log(this);
+    if(this.readyState == 4) {
+      var response = JSON.parse(this.response);
+      alert(response.message);
+    }
   }
 
-  xhr.open('POST', '/createChallenge', true);
+  xhr.open('POST', '/challenge', true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
   xhr.send(JSON.stringify(formData));
 }
