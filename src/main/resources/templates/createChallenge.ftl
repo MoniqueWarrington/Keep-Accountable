@@ -31,19 +31,19 @@
 				<div class="row">
 					<div class="form-group">
 						<label for="amount">Subscription amount:</label>
-						<input type="text" class="form-control" id="amount" />
+						<input type="text" class="form-control" id="subscriptionAmount" />
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group">
 						<label for="cap">Subscription cap:</label>
-						<input type="text" class="form-control" id="cap" />
+						<input type="text" class="form-control" id="subscriptionCap" />
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group">
 						<label for="image">Image URL:</label>
-						<input type="text" class="form-control" id="image" />
+						<input type="text" class="form-control" id="imageUrl" />
 					</div>
 				</div>
 				<div class="row">
