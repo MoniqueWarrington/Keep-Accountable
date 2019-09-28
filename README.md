@@ -21,3 +21,5 @@ To Run:
 ```
 java -jar target/keepaccountable-0.0.1-SNAPSHOT.jar
 ```
+
+Point browser to https://localhost:8080
