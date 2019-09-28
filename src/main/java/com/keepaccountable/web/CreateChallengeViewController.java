@@ -21,6 +21,6 @@ public class CreateChallengeViewController {
 	@PostMapping("/create")
 	public String createSubmit(@ModelAttribute ChallengeFormSubmission challengeFormSubmission) {
 		System.out.print(challengeFormSubmission.getTitle());
-		return "index";
+		return "What is good famsquad, the title you sent is: " + challengeFormSubmission.getTitle();
 	}
 }
