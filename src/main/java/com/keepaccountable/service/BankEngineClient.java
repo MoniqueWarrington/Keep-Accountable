@@ -1,9 +1,6 @@
 package com.keepaccountable.service;
 
-import com.keepaccountable.data.AccountResponse;
-import com.keepaccountable.data.BalanceResponse;
-import com.keepaccountable.data.TransactionResponse;
-import com.keepaccountable.data.UserInfoResponse;
+import com.keepaccountable.data.*;
 import com.keepaccountable.domain.*;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -123,5 +120,18 @@ public class BankEngineClient {
         return response.getBody().getData();
     }
 
+    public void makePayment(@NotNull PaymentRequest payment, @NotNull String accessToken) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + accessToken);
+        headers.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
 
+        ResponseEntity response = restClient.exchange(
+                "https://api.bankengine.nz/payments/v0/payment",
+                HttpMethod.POST,
+                new HttpEntity<>(payment, headers),
+                TransactionResponse.class);
+
+        log.info(response.toString());
+//        return response.getBody().getData();
+    }
 }
