@@ -1,5 +1,7 @@
 package com.keepaccountable.persist;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +22,9 @@ public class ChallengeDAO {
 	public Optional<ChallengeFormSubmission> findById(String id) {
 		return challengeRepository.findById(id);
 	}
+	
+	public List<ChallengeFormSubmission> findAll(){
+		return challengeRepository.findAll();
+	}
+	
 }
