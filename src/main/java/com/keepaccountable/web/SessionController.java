@@ -3,20 +3,17 @@ package com.keepaccountable.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @SessionAttributes("token")
-public class CallbackController {
+public class SessionController {
 
-	
-    @GetMapping("/callback")
-    public ModelAndView callback(@RequestParam("code") String code, @ModelAttribute("token") String token) {
-    	ModelAndView modelAndView = new ModelAndView("callback");
-        modelAndView.addObject("token", code);
-        token = code;
+    @GetMapping("/session")
+    public ModelAndView callback(@ModelAttribute("token") String token) {
+    	ModelAndView modelAndView = new ModelAndView("session");
+        modelAndView.addObject("token", token);
         return modelAndView;
     }
 }
