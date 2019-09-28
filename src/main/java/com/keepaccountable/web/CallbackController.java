@@ -40,10 +40,12 @@ public class CallbackController {
     }
 
     private void retriveAllInfo(@NotNull String code) {
-
-
         Token token = client.exchangeToken(code);
         UserInfo user = client.getUserInfo(token.getAccessToken());
         List<Account> accounts = client.getAllAccount(token.getAccessToken());
+        accounts.forEach(account -> client.getBalance(account, token.getAccessToken()));
+        accounts.forEach(account -> {
+            client.getTransactions(account, token.getAccessToken()).forEach(transaction -> log.info(transaction.toString()));
+        });
     }
 }

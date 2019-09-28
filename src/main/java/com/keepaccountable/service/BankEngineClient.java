@@ -1,10 +1,10 @@
 package com.keepaccountable.service;
 
 import com.keepaccountable.data.AccountResponse;
+import com.keepaccountable.data.BalanceResponse;
+import com.keepaccountable.data.TransactionResponse;
 import com.keepaccountable.data.UserInfoResponse;
-import com.keepaccountable.domain.Account;
-import com.keepaccountable.domain.Token;
-import com.keepaccountable.domain.UserInfo;
+import com.keepaccountable.domain.*;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,9 +95,33 @@ public class BankEngineClient {
         return response.getBody().getData();
     }
 
-//    public Balance getBalance(@NotNull Account, @NotNull String accessToken) {
-//
-//    }
+    public Balance getBalance(@NotNull Account account, @NotNull String accessToken) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + accessToken);
+        ResponseEntity<BalanceResponse> response = restClient.exchange(
+                "https://api.bankengine.nz/data/v1/accounts/{account_id}/balance",
+                HttpMethod.GET,
+                new HttpEntity<>(null, headers),
+                BalanceResponse.class,
+                account.getAccountId());
+
+        log.info(response.getBody().toString());
+        return response.getBody().getData().get(0);
+    }
+
+    public List<Transaction> getTransactions(@NotNull Account account, @NotNull String accessToken) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "Bearer " + accessToken);
+        ResponseEntity<TransactionResponse> response = restClient.exchange(
+                "https://api.bankengine.nz/data/v1/accounts/{account-id}/transactions",
+                HttpMethod.GET,
+                new HttpEntity<>(null, headers),
+                TransactionResponse.class,
+                account.getAccountId());
+
+        log.info(response.getBody().toString());
+        return response.getBody().getData();
+    }
 
 
 }
