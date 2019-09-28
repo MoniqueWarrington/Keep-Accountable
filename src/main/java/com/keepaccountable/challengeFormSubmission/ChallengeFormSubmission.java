@@ -1,5 +1,7 @@
 package com.keepaccountable.challengeFormSubmission;
 
+import org.springframework.data.annotation.Id;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -8,6 +10,10 @@ import lombok.ToString;
 @Data
 @ToString
 public class ChallengeFormSubmission {
+	
+	@Id
+	private String id;
+	
 	@JsonProperty("title")
 	private String title;
 	
