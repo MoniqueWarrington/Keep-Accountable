@@ -12,7 +12,9 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Create Challenge<h1>	
+			<h1>Challenge Yourself!</h1>
+			<p>What do you need to get motivated to do? You'll be much more likely to accomplish your goals if they have consequences...</p>
+			</br>
 			<div class="row">
 				<div class="form-group">
 					<label for="title">Title:</label>
@@ -22,7 +24,7 @@
 			<div class="row">
 				<div class="form-group">
 					<label for="description">Description:</label>
-					<input type="text" class="form-control" id="description" />
+					<textarea class="md-textarea form-control" id="description" rows="3"> </textarea>
 				</div>
 			</div>
 			<div class="row">
@@ -43,7 +45,9 @@
 					<input type="text" class="form-control" id="image" />
 				</div>
 			</div>
-			<button>Submit</button>
+			<div class="row">
+				<button type="submit" class="btn btn-lg btn-primary">Submit</button>
+			</div>
 		</div>
 	</body>
 </html>
