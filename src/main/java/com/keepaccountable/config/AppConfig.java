@@ -21,7 +21,6 @@ public class AppConfig {
     @Value("${spring.data.mongodb.host}")
     private String mongoDbHost;
 
-
     @Bean
     public MongoTemplate mongoTemplate() {
         return new MongoTemplate(new MongoClient(mongoDbHost), mongoDbName);
