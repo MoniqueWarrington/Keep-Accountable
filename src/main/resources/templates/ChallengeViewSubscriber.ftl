@@ -11,7 +11,7 @@
 		 <link rel="stylesheet" type="text/css" href="/css/challengeviewsubscriver.css" />
 </head>
 <body style="background-color: white;">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="width:100%">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-custom" style="width:100%">
 			<h1 class="nav-title" style="color:white">Keep-Accountable</h1>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -43,21 +43,20 @@
 	
 	<div class="container jumbotron">
 		<div class="row">
-			<div class="challenger-img col-sm-5">
-				<img src="https://img1.looper.com/img/gallery/was-jim-halpert-from-the-office-secretly-a-sociopath/intro-1565015060.jpg"
-					 style="width:100%">
+			<div class="challenger-img thumbnail col-sm-5">
+				<img class ="img-thumbnail" src="${imageUrl}">
 			</div>
 			<div class="challenge-desc col-sm-7">			
-				<div class="page-title col-sm-12"><h1>Jim needs to go to the Gym</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo venenatis nibh eu facilisis. Cras ut mi eu ipsum congue suscipit id sit amet eros. Proin et rutrum turpis, non facilisis orci. Pellentesque est mi, semper blandit molestie sit amet, rhoncus in lacus. Ut et elit condimentum tortor mollis congue at ut metus. Maecenas semper justo velit, non tristique lectus aliquet non. Suspendisse placerat convallis dictum. Cras eget lorem sed lectus dictum lacinia eget nec ante. Morbi ultrices lacinia vulputate. Cras commodo a turpis a placerat. Pellentesque rhoncus consectetur aliquam. Suspendisse potenti. Duis et purus ante. Nullam sed ipsum congue, eleifend odio non, mollis ligula.</p>
+				<div class="page-title col-sm-12"><h1>${title}</h1>
+				<p>${description}</p>
 				</div>				
 			</div>
 		</div>
 		<div class="row">
 			<div class="progress-view col-sm-12 jumbotron-smol">
-				<h2>5 out of 12 weeks completed</h2>
+				<h2>${challengeProgress} out of ${challengeCap} ${challengeUnits} completed</h2>
 				<div class="progress">
-					<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+					<div class="progress-bar" role="progressbar" style="width: ${challengePercentage}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 				<br/>
 			</div>
@@ -65,16 +64,16 @@
 		<div class="row">
 			<div class="penalty-view col-sm-4">
 				<div style = "width:100%;height:100%;border-radius: 25px;" class="alert alert-danger info-box">
-				  <strong>Current Penalty: $45</strong> 
+				  <strong>Current Penalty: $ ${penaltyAmount}</strong>
 				</div>
 			</div>
 			<div class="subscriber-amt-view col-sm-4">
 				<div style = "width:100%;height:100%;border-radius: 25px;" class="alert alert-primary info-box">
-				  <strong>Subscription Amount: $5</strong> 
+				  <strong>Subscription Amount: $ ${subscriptionAmount}</strong> 
 				</div>
 			</div>
 			<div class="subscriibe-view col-sm-4">
-				<button type="submit" style="width:100%;height:100%;border-radius: 25px;" class="btn btn-primary info-box">Subscribe</button>
+				<button type="submit" style="width:100%;height:100%;border-radius: 25px;" class="btn btn-primary info-box bg-custom">Subscribe</button>
 			</div>
 		</div>
 	</div>
