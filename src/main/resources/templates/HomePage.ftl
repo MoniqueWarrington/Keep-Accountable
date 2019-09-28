@@ -49,8 +49,10 @@
 					Keep track of your goals and invite your friends to keep you motivated and most of all: Accountable!
 				</h2>
 				<br/>
-				<div>				
-					<button type="submit" style="width:100%;height:100%;border-radius: 25px;" class="btn btn-primary info-box bg-custom">Get Started Now!</button>
+				<div>
+					<a href="create">				
+						<button type="submit" onclick="/create" style="width:100%;height:100%;border-radius: 25px;" class="btn btn-primary info-box bg-custom">Get Started Now!</button>
+					</a>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -64,7 +66,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4">
-					<a href="Id1">
+					<a href="${href1}">
 						<div class="card border-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">${title1}</div>
 							<div class="card-body">
@@ -76,7 +78,7 @@
 					</a>
 				</div>
 				<div class="col-sm-4">
-					<a href="Id2">
+					<a href="${href2}">
 						<div class="card border-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">${title2}</div>
 							<div class="card-body">
@@ -88,7 +90,7 @@
 					</a>		
 				</div>
 				<div class="col-sm-4">
-					<a href="Id3">
+					<a href="${href3}">
 						<div class="card border-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">${title3}</div>
 							<div class="card-body">
