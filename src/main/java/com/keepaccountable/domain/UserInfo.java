@@ -11,6 +11,7 @@ import java.util.List;
 @ToString
 public class UserInfo {
 
+    private List<Address> addresses;
     private Date dateOfBirth;
     private List<String> emails;
     private String fullName;
