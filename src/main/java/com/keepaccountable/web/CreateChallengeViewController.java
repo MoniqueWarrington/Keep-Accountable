@@ -17,14 +17,4 @@ public class CreateChallengeViewController {
 		model.addAttribute("challengeFormSubmission", form);
 		return "createChallenge";
 	}
-<<<<<<< HEAD
-=======
-	
-	@PostMapping("/create")
-	public String createSubmit(@ModelAttribute ChallengeFormSubmission challengeFormSubmission) {
-		System.out.print(challengeFormSubmission.getTitle());
-		
-		return "index";
-	}
->>>>>>> added home page and data retrieval
 }

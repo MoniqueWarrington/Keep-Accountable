@@ -23,7 +23,7 @@
 					<a class="nav-link" href=""><h2>Home</h2> <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item space-apart">
-					<a class="nav-link" href="#"><h2>Challenges</h2></a>
+					<a class="nav-link" href="#"><h2>Goals</h2></a>
 				</li>
 				<li class="nav-item space-apart">
 					<a class="nav-link" href="#"><h2>Profile</h2></a>
