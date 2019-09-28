@@ -3,13 +3,14 @@ function postFormData() {
   postData({
     title: document.getElementById('title').value,
     description: document.getElementById('description').value,
-    subscriptionAmount: document.getElementById('amount').value,
-    subscriptionCap: document.getElementById('cap').value,
-    imageUrl: document.getElementById('image').value,
+    subscriptionAmount: document.getElementById('subscriptionAmount').value,
+    subscriptionCap: document.getElementById('subscriptionCap').value,
+    imageUrl: document.getElementById('imageUrl').value,
     challengePercentage: 0,
     challengeProgress: 0,
     challengeCap: 100,
-    challengeUnits: "Weeks"
+    challengeUnits: "Weeks",
+    penaltyAmount: 50,
   });
 
 }
