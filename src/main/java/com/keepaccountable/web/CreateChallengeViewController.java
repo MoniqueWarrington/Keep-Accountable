@@ -17,10 +17,4 @@ public class CreateChallengeViewController {
 		model.addAttribute("challengeFormSubmission", form);
 		return "createChallenge";
 	}
-	
-	@PostMapping("/create")
-	public String createSubmit(@ModelAttribute ChallengeFormSubmission challengeFormSubmission) {
-		System.out.print(challengeFormSubmission.getTitle());
-		return "What is good famsquad, the title you sent is: " + challengeFormSubmission.getTitle();
-	}
 }
