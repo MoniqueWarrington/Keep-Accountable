@@ -66,3 +66,11 @@
 .title-font {
   font-family: "Times New Roman", Times, serif;
 }
+.card-text{
+	height:50px;
+	overflow:hidden;
+}
+
+p h1 h2 {
+  font-family: "Times New Roman", Times, serif;
+}

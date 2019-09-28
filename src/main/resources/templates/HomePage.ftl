@@ -90,7 +90,7 @@
 					</a>		
 				</div>
 				<div class="col-sm-4">
-					<a href="${href1}">
+					<a href="${href3}">
 						<div class="card border-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">${title3}</div>
 							<div class="card-body">
