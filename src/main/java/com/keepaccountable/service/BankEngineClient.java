@@ -3,6 +3,7 @@ package com.keepaccountable.service;
 import com.keepaccountable.data.*;
 import com.keepaccountable.domain.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +13,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -21,13 +23,20 @@ public class BankEngineClient {
     @Autowired
     private RestTemplate restClient;
 
-    private String authUrl = "https://auth.bankengine.nz/connect/token";
+    private static String authUrl = "https://auth.bankengine.nz/connect/token";
+
+    private static String SAFETY_ACCOUNT = "99-0129-6525632-00";
 
     @Value("${bankengine.client.id}")
     private String clientId;
 
     @Value("${bankengine.client.secret}")
     private String clientSecret;
+
+    @Value("${safety_account_token}")
+    private String safetyAccountRefreshToken;
+    @Value("${sefety_account_refresh}")
+    private String safetyAccountAccessToken;
 
     public Token exchangeToken(@NotNull String code) {
         HttpHeaders headers = new HttpHeaders();
@@ -120,7 +129,7 @@ public class BankEngineClient {
         return response.getBody().getData();
     }
 
-    public void makePayment(@NotNull PaymentRequest payment, @NotNull String accessToken) {
+    public boolean makePayment(@NotNull PaymentRequest payment, @NotNull String accessToken) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer " + accessToken);
         headers.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
@@ -129,9 +138,50 @@ public class BankEngineClient {
                 "https://api.bankengine.nz/payments/v0/payment",
                 HttpMethod.POST,
                 new HttpEntity<>(payment, headers),
-                TransactionResponse.class);
+                Object.class);
 
         log.info(response.toString());
-//        return response.getBody().getData();
+        return response.getStatusCode().equals(HttpStatus.OK) ? true : false;
     }
+
+    public boolean depositToSafetyAccount(@NotNull Account fromAccount, double amount, @NotNull String accessToken) {
+        String refStr = RandomStringUtils.randomAlphabetic(6);
+        PaymentRequest payment = PaymentRequest.builder()
+                .fromAccount(fromAccount.getAccountNumber())
+                .toAccount(SAFETY_ACCOUNT)
+                .from(PaymentRef.builder()
+                        .particulars("safety")
+                        .code("deposit")
+                        .reference(refStr)
+                        .build())
+                .to(PaymentRef.builder()
+                        .particulars("subscriber")
+                        .code("income")
+                        .reference(refStr)
+                        .build())
+                .amount(BigDecimal.valueOf(amount))
+                .build();
+        return makePayment(payment, accessToken);
+    }
+
+    public boolean refundFromSafetyAccount(@NotNull Account toAccount, double amount) {
+        String refStr = RandomStringUtils.randomAlphabetic(6);
+        PaymentRequest refund = PaymentRequest.builder()
+                .fromAccount(SAFETY_ACCOUNT)
+                .toAccount(toAccount.getAccountNumber())
+                .from(PaymentRef.builder()
+                        .particulars("safety")
+                        .code("lost")
+                        .reference(refStr)
+                        .build())
+                .to(PaymentRef.builder()
+                        .particulars("subscriber")
+                        .code("refund")
+                        .reference(refStr)
+                        .build())
+                .amount(BigDecimal.valueOf(amount))
+                .build();
+        return makePayment(refund, safetyAccountAccessToken);
+    }
+
 }

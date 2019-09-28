@@ -1,13 +1,10 @@
 package com.keepaccountable.web;
 
-import com.keepaccountable.data.PaymentRequest;
-import com.keepaccountable.data.PaymentRef;
 import com.keepaccountable.domain.Account;
 import com.keepaccountable.domain.Token;
 import com.keepaccountable.domain.UserInfo;
 import com.keepaccountable.service.BankEngineClient;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Slf4j
@@ -27,6 +23,7 @@ public class CallbackController {
 
     @Autowired
     private BankEngineClient client;
+
 
     @ModelAttribute("token")
     public String getToken() {
@@ -38,8 +35,7 @@ public class CallbackController {
         ModelAndView modelAndView = new ModelAndView("callback");
         modelAndView.addObject("token", code);
         token = code;
-
-        retriveAllInfo(code);
+//        retriveAllInfo(code);
         return modelAndView;
     }
 
@@ -52,24 +48,7 @@ public class CallbackController {
             client.getTransactions(account, token.getAccessToken()).forEach(transaction -> log.info(transaction.toString()));
         });
 
-
-        String refStr = RandomStringUtils.randomAlphabetic(6);
-
-        PaymentRequest payment = PaymentRequest.builder()
-                .fromAccount(accounts.get(0).getAccountNumber())
-                .toAccount("99-0129-6525632-00")
-                .from(PaymentRef.builder()
-                        .particulars("safety")
-                        .code("deposit")
-                        .reference(refStr)
-                        .build())
-                .to(PaymentRef.builder()
-                        .particulars("subscriber")
-                        .code("income")
-                        .reference(refStr)
-                        .build())
-                .amount(BigDecimal.valueOf(1.45))
-                .build();
-        client.makePayment(payment, token.getAccessToken());
+        client.depositToSafetyAccount(accounts.get(0), 1.66, token.getAccessToken());
+        client.refundFromSafetyAccount(accounts.get(0), 2);
     }
 }
