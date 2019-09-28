@@ -34,4 +34,7 @@ public class ChallengeFormSubmission {
 	
 	@JsonProperty("challengeUnits")
 	private String challengeUnits;
+	
+	@JsonProperty("penaltyAmount")
+	private Long penaltyAmount;
 }
