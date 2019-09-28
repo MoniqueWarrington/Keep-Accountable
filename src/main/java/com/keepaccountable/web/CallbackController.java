@@ -11,6 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes("token")
 public class CallbackController {
 
+	@ModelAttribute("token")
+	public String getToken() {
+	    return "token";
+	}
 	
     @GetMapping("/callback")
     public ModelAndView callback(@RequestParam("code") String code, @ModelAttribute("token") String token) {
