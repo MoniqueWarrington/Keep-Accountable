@@ -20,7 +20,8 @@ function postData(formData) {
   xhr.onreadystatechange = function() {
     if(this.readyState == 4) {
       var response = JSON.parse(this.response);
-      alert(response.message);
+      alert("Challenge successfully created");
+      window.location.replace('/'+response.id);
     }
   }
 

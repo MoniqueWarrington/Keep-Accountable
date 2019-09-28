@@ -19,9 +19,9 @@ public class ChallengeService {
 	ChallengeDAO challengeDAO;
 	
 	@PostMapping(path="/challenge", consumes="application/json", produces="application/json")
-	public String create(@RequestBody ChallengeFormSubmission challenge) {
+	public ChallengeFormSubmission create(@RequestBody ChallengeFormSubmission challenge) {
 		challengeDAO.save(challenge);
-		return "{ \"message\": \" Goal saved with id " + challenge.getId() + "\"}";
+		return challenge;
 	}
 	
 	@GetMapping(value = "/challenge/{id}")
