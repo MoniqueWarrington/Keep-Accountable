@@ -3,17 +3,19 @@ package com.keepaccountable.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.keepaccountable.challengeFormSubmission.ChallengeFormSubmission;
 
 @Controller
 public class SubscriberViewController {	
 	
-	@GetMapping("/subscriberview")
-    public String index(Model model) {		
+	@GetMapping("/{challengeId}")
+    public String index(Model model, @PathVariable(value="challengeId") String id) {
+		
 		ChallengeFormSubmission ch = makeTestChallengeFormSubmission();
 		
-		model.addAttribute("title", ch.getTitle());
+		model.addAttribute("title", id+" "+ch.getTitle());
 		model.addAttribute("description", ch.getDescription());
 		model.addAttribute("penaltyAmount", ch.getPenaltyAmount());		
 		model.addAttribute("subscriptionAmount", ch.getSubscriptionAmount());
@@ -23,7 +25,8 @@ public class SubscriberViewController {
 		model.addAttribute("challengeProgress", ch.getChallengeProgress());
 		model.addAttribute("challengeCap", ch.getChallengeCap());
 		model.addAttribute("challengeUnits", ch.getChallengeUnits());
-				return "ChallengeViewSubscriber";	
+		
+		return "ChallengeViewSubscriber";	
 	}
 	
 	private ChallengeFormSubmission makeTestChallengeFormSubmission() {

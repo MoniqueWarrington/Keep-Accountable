@@ -20,7 +20,7 @@
 				<div class ="center">
 					<ul class="navbar-nav mr-auto">
 					<li class="nav-item active space-apart">
-						<a class="nav-link" href="#"><h2>Home</h2> <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="/"><h2>Home</h2> <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item space-apart">
 						<a class="nav-link" href="#"><h2>Challenges</h2></a>
