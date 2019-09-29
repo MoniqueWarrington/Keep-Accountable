@@ -1,6 +1,7 @@
 
 function postFormData() {
   postData({
+    token: document.getElementById('token').value,
     title: document.getElementById('title').value,
     description: document.getElementById('description').value,
     subscriptionAmount: document.getElementById('subscriptionAmount').value,
