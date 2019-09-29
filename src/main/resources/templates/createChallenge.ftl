@@ -37,7 +37,7 @@
 				</div>
 				<div class="row">
 					<div class="form-group">
-						<label for="cap">Subscription cap:</label>
+						<label for="cap">Penalty Limit:</label>
 						<input type="text" class="form-control" id="subscriptionCap" />
 					</div>
 				</div>
