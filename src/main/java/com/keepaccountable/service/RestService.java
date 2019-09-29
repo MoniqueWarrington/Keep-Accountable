@@ -11,6 +11,4 @@ public class RestService {
 
     @Autowired
     private RestTemplate restClient;
-
-
 }

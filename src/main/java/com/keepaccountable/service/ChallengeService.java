@@ -13,13 +13,14 @@ import com.keepaccountable.challengeFormSubmission.ChallengeFormSubmission;
 import com.keepaccountable.persist.ChallengeDAO;
 
 @RestController
+@SessionAttributes("token")
 public class ChallengeService {
 
 	@Autowired
 	ChallengeDAO challengeDAO;
 	
 	@PostMapping(path="/challenge", consumes="application/json", produces="application/json")
-	public ChallengeFormSubmission create(@RequestBody ChallengeFormSubmission challenge) {
+	public ChallengeFormSubmission create(@RequestBody ChallengeFormSubmission challenge, @ModelAttribute("token") String token) {
 		challengeDAO.save(challenge);
 		return challenge;
 	}

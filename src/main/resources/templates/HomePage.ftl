@@ -49,9 +49,10 @@
 					Keep track of your goals and invite your friends to keep you motivated and most of all: Accountable!
 				</h2>
 				<br/>
-				<div>
-					<a href="create">				
-						<button type="submit" onclick="/create" style="width:100%;height:100%;border-radius: 25px;" class="btn btn-primary info-box bg-custom">Get Started Now!</button>
+				<div>				
+					<a href="https://auth.bankengine.nz/banks?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fresponse_type%3Dcode%26client_id%3Dkeep-accountable%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252Fcallback%26scope%3Duserinfo%2520offline_access%2520accounts%2520balance%2520transactions%2520payments%26nonce%3Dnonce%26state%3Dstate%2527">
+							<button type="submit" 
+							 style="width:100%;height:100%;border-radius: 25px;" class="btn btn-primary info-box bg-custom">Get Started Now!</button>
 					</a>
 				</div>
 			</div>
