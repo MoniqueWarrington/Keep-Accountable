@@ -33,7 +33,7 @@ public class ChallengeService {
     public ChallengeFormSubmission create(@RequestBody ChallengeFormSubmission challenge, @ModelAttribute("token") String token) {
         challengeDAO.save(challenge);
         Account account = client.getAllAccount(challenge.getToken()).get(0);
-        client.depositToSafetyAccount(account, (double) challenge.getChallengeCap(), challenge.getToken());
+        client.depositToSafetyAccount(account, (double) challenge.getSubscriptionCap(), challenge.getToken());
         return challenge;
     }
 
