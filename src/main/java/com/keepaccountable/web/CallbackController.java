@@ -24,7 +24,6 @@ public class CallbackController {
     @Autowired
     private BankEngineClient client;
 
-
     @ModelAttribute("token")
     public String getToken() {
         return "token";
@@ -33,8 +32,8 @@ public class CallbackController {
     @GetMapping("/callback")
     public ModelAndView callback(@RequestParam("code") String code, @ModelAttribute("token") String token) {
         ModelAndView modelAndView = new ModelAndView("createChallenge");
-        token = code;
-        // modelAndView.addObject("token", code);
+        Token t = client.exchangeToken(code);
+        modelAndView.addObject("token", t.getAccessToken());
 //        retriveAllInfo(code);
         return modelAndView;
     }

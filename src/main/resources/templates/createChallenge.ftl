@@ -16,6 +16,7 @@
 			<p>What do you need to get motivated to do? You'll be much more likely to accomplish your goals if they have consequences...</p>
 			<br/>
 			<form method="POST" name="challengeFormSubmission" id="createForm">
+				<input type="hidden" id="token" value="${token}">
 				<div class="row">
 					<div class="form-group">
 						<label for="title">Title:</label>
