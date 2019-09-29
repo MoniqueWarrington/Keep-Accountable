@@ -1,13 +1,11 @@
 package com.keepaccountable.persist;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
+import com.keepaccountable.challengeFormSubmission.ChallengeFormSubmission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.keepaccountable.challengeFormSubmission.ChallengeFormSubmission;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ChallengeDAO {

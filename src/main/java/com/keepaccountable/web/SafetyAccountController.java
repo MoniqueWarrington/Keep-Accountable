@@ -1,11 +1,11 @@
 package com.keepaccountable.web;
 
-import com.keepaccountable.domain.Token;
 import com.keepaccountable.service.BankEngineClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -20,8 +20,8 @@ public class SafetyAccountController {
     }
 
     @GetMapping("/safety_account_auth")
-    public String safetyAccountAuth(String code) {
-        Token safetyToken = bankEngineClient.exchangeToken(code);
-        return safetyToken.getAccessToken();
+    public String safetyAccountAuth(@RequestParam String code) {
+        bankEngineClient.authenticateSafetyAccount(code);
+        return "Done! Go Demo!";
     }
 }

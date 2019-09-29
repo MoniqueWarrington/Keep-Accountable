@@ -38,6 +38,13 @@ public class BankEngineClient {
     @Value("${sefety_account_refresh}")
     private String safetyAccountAccessToken;
 
+    private Token safetyAccountToken;
+
+    public void authenticateSafetyAccount(@NotNull String code) {
+        this.safetyAccountToken = exchangeToken(code);
+        log.info("Safety account token: {}", safetyAccountAccessToken);
+    }
+
     public Token exchangeToken(@NotNull String code) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
@@ -181,7 +188,6 @@ public class BankEngineClient {
                         .build())
                 .amount(BigDecimal.valueOf(amount))
                 .build();
-        return makePayment(refund, safetyAccountAccessToken);
+        return makePayment(refund, safetyAccountToken.getAccessToken());
     }
-
 }
