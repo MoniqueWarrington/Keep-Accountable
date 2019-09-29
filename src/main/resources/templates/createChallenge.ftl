@@ -46,7 +46,20 @@
 						<label for="image">Image URL:</label>
 						<input type="text" class="form-control" id="imageUrl" />
 					</div>
-				</div>
+				</div>				
+				<div class="row">
+					<div class="form-group">
+						<label for="image">Goal</label>
+						<input type="text" class="form-control" id="challengeCap" />
+					</div>
+				</div>		
+				<div class="row">
+					<div class="form-group">
+						<label for="image">Goal Units</label>
+						<input type="text" class="form-control" id="challengeUnits" />
+					</div>
+				</div>		
+				
 				<div class="row">
 					<input type="button" onClick="postFormData()" class="btn btn-lg btn-primary" value="Submit"/>
 				</div>
