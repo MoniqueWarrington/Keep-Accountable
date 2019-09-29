@@ -32,9 +32,9 @@ public class CallbackController {
 
     @GetMapping("/callback")
     public ModelAndView callback(@RequestParam("code") String code, @ModelAttribute("token") String token) {
-        ModelAndView modelAndView = new ModelAndView("callback");
-        modelAndView.addObject("token", code);
+        ModelAndView modelAndView = new ModelAndView("createChallenge");
         token = code;
+        // modelAndView.addObject("token", code);
 //        retriveAllInfo(code);
         return modelAndView;
     }
