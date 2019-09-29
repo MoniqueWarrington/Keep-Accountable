@@ -8,9 +8,9 @@ function postFormData() {
     imageUrl: document.getElementById('imageUrl').value,
     challengePercentage: 0,
     challengeProgress: 0,
-    challengeCap: 100,
-    challengeUnits: "Weeks",
-    penaltyAmount: 50,
+    challengeCap: document.getElementById('challengeCap').value,
+    challengeUnits: document.getElementById('challengeUnits').value,
+    penaltyAmount: 0,
   });
 
 }
