@@ -40,9 +40,9 @@ public class HomePageController {
     	model.addAttribute("desc2", ch2.getDescription());
     	model.addAttribute("desc3", ch3.getDescription());
     	
-    	model.addAttribute("penalty1", ch1.getSubscriptionAmount());
-    	model.addAttribute("penalty2", ch2.getSubscriptionAmount());
-    	model.addAttribute("penalty3", ch3.getSubscriptionAmount());
+    	model.addAttribute("penalty1", ch1.getPenaltyAmount());
+    	model.addAttribute("penalty2", ch2.getPenaltyAmount());
+    	model.addAttribute("penalty3", ch3.getPenaltyAmount());
     	
     	
         return "HomePage";
