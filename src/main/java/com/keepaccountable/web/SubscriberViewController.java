@@ -27,6 +27,7 @@ public class SubscriberViewController {
 		}
 		
 		if(ch != null) {
+			model.addAttribute("id", id);
 			model.addAttribute("title", ch.getTitle());
 			model.addAttribute("description", ch.getDescription());
 			model.addAttribute("penaltyAmount", ch.getPenaltyAmount());		
