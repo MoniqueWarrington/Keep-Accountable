@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CardDisplay from './ChallengeCard/ChallengeCard';
+import Homepage from './HomePage/HomePage';
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer/Footer';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <h1>Keep accountable!</h1>
-          <CardDisplay></CardDisplay>
+          <Navbar></Navbar>     
+          <Homepage></Homepage>
+          <Footer></Footer>
       </div>
     );
   }
