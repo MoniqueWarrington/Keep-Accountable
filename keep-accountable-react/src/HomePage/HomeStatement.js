@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'
+import './../App.css';
 
 const styleButton = {
     width:'100%',
@@ -11,13 +11,17 @@ const styleImg = {
     width:'100%'
 }
 
+const styleJumbotron = {
+    padding: '20px', 
+    margin:'5px'
+}
 
 class HomeStatement extends React.Component{
     render(){
         return(
-            <div className="jumbotron">
+            <div className="jumbotron" style={styleJumbotron}>
                 <div className="row">
-                    <div className="col-sm-6">
+                    <div className="col-sm-7">
                         <h1>Keep-Accountable</h1>
                         <h2>
                             Keep track of your goals and invite your friends to keep you motivated and most of all: Accountable!
@@ -30,7 +34,7 @@ class HomeStatement extends React.Component{
                             </a>
                         </div>
                     </div>
-                    <div className="col-sm-6">
+                    <div className="col-sm-5">
                         <img src="https://assets.entrepreneur.com/content/3x2/2000/20190211153655-GettyImages-1024882748.jpeg?width=1000"
                             style={styleImg}>
                         </img>
